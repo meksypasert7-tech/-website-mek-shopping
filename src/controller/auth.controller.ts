@@ -1,8 +1,13 @@
 
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 import { Customer, User } from "../models";
 import bcrypt from "bcrypt";
+
+dotenv.config();
+
+const jwtSecret = process.env.JWT_SECRET || "your_jwt_secret";
 
 function splitFullName(fullName: string | null): { name: string; sname: string } {
   const parts = (fullName ?? "").trim().split(/\s+/).filter(Boolean);
@@ -57,7 +62,7 @@ class AuthController {
                     role: user.role,
                     customerId: customer.cus_id
                 },
-                process.env.JWT_SECRET || 'your_jwt_secret',
+                jwtSecret,
                 { expiresIn: '1d' }
             );
             const { name: n, sname: sn } = splitFullName(user.Full_Name);
@@ -120,7 +125,7 @@ class AuthController {
                     role: user.role,
                     customerId
                 },
-                process.env.JWT_SECRET || 'your_jwt_secret',
+                jwtSecret,
                 { expiresIn: '1d' }
             );
             const { name, sname } = splitFullName(user.Full_Name);

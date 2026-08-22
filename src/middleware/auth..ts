@@ -1,6 +1,12 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 import User from "../models/user.model";
+
+dotenv.config();
+
+const jwtSecret = process.env.JWT_SECRET || "your_jwt_secret";
+
 interface JwtPayload {
   id: string;
   username: string;
@@ -25,10 +31,7 @@ export const authenticate = async (
     }
 
     const token = authHeader.split(" ")[1];
-    const decoded = jwt.verify(
-      token,
-      process.env.JWT_SECRET || "your_jwt_secret",
-    ) as JwtPayload;
+    const decoded = jwt.verify(token, jwtSecret) as JwtPayload;
 
     const user = await User.findByPk(decoded.id);
 
@@ -43,6 +46,7 @@ export const authenticate = async (
     (req as any).user = decoded;
     next();
   } catch (error) {
+    console.error("JWT verification failed:", error);
     res.status(401).json({
       success: false,
       message: "Authentication failed. Invalid token.",
