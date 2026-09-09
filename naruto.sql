@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2026 at 05:05 PM
+-- Generation Time: Aug 13, 2026 at 04:21 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -90,14 +90,7 @@ INSERT INTO `bill_sell_detail` (`detail_id`, `Order_id`, `Pro_id`, `qty`, `Total
 (44, 44, 10, 1, 175000, '2026-08-11', 'images/products/product-1786189065075-160432212.png', '2026-08-11 12:05:07', '2026-08-11 12:05:07'),
 (45, 44, 9, 3, 465000, '2026-08-11', 'images/products/product-1786189051591-348968888.jpg', '2026-08-11 12:05:07', '2026-08-11 12:05:07'),
 (46, 44, 8, 10, 1500000, '2026-08-11', 'images/products/product-1786189040794-623950295.jpg', '2026-08-11 12:05:07', '2026-08-11 12:05:07'),
-(47, 45, 10, 1, 175000, '2026-08-12', 'images/products/product-1786189065075-160432212.png', '2026-08-12 01:19:36', '2026-08-12 01:19:36'),
-(48, 46, 8, 1, 150000, '2026-08-13', 'images/products/product-1786189040794-623950295.jpg', '2026-08-13 03:25:35', '2026-08-13 03:25:35'),
-(49, 46, 10, 1, 175000, '2026-08-13', 'images/products/product-1786189065075-160432212.png', '2026-08-13 03:25:35', '2026-08-13 03:25:35'),
-(50, 46, 18, 1, 150000, '2026-08-13', 'images/products/product-1786411510489-145021728.jfif', '2026-08-13 03:25:35', '2026-08-13 03:25:35'),
-(51, 47, 8, 1, 150000, '2026-08-13', 'images/products/product-1786189040794-623950295.jpg', '2026-08-13 05:49:28', '2026-08-13 05:49:28'),
-(52, 48, 9, 1, 155000, '2026-08-13', 'images/products/product-1786189051591-348968888.jpg', '2026-08-13 05:52:12', '2026-08-13 05:52:12'),
-(53, 49, 10, 1, 175000, '2026-08-13', 'images/products/product-1786189065075-160432212.png', '2026-08-13 07:16:32', '2026-08-13 07:16:32'),
-(54, 49, 9, 1, 155000, '2026-08-13', 'images/products/product-1786189051591-348968888.jpg', '2026-08-13 07:16:32', '2026-08-13 07:16:32');
+(47, 45, 10, 1, 175000, '2026-08-12', 'images/products/product-1786189065075-160432212.png', '2026-08-12 01:19:36', '2026-08-12 01:19:36');
 
 -- --------------------------------------------------------
 
@@ -127,6 +120,17 @@ INSERT INTO `brand` (`brand_id`, `name`, `tagline`, `country`, `brand_logo`, `cr
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `brand_category`
+--
+
+CREATE TABLE `brand_category` (
+  `brand_id` int(10) UNSIGNED NOT NULL,
+  `cate_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `category`
 --
 
@@ -147,6 +151,28 @@ INSERT INTO `category` (`cate_id`, `cate_name`, `createdAt`, `updatedAt`, `cate_
 (2, 'ເສື້ອຜ້າ', '2026-04-22 12:31:49', '2026-08-04 05:51:18', 'images/categories/category-1785822678831-365733793.png'),
 (3, 'ອຸປະກອນກິລາ', '2026-04-22 12:31:49', '2026-08-04 05:52:01', 'images/categories/category-1785822721122-909690846.jpg'),
 (4, 'ອິເລັກທໍນິກ', '2026-04-22 12:31:49', '2026-08-04 16:34:48', 'images/categories/category-1785861288636-63393886.jfif');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_messages`
+--
+
+CREATE TABLE `contact_messages` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `message` varchar(1000) NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact_messages`
+--
+
+INSERT INTO `contact_messages` (`id`, `name`, `email`, `message`, `createdAt`, `updatedAt`) VALUES
+(1, 'wrgehry', 'mm@gmail.com', 'weretyrutiy', '2026-08-11 00:58:26', '2026-08-11 00:58:26');
 
 -- --------------------------------------------------------
 
@@ -205,9 +231,7 @@ INSERT INTO `customer` (`cus_id`, `cus_name`, `Tel`, `address`, `cus_status`, `E
 (37, 'ທ້າວ ດຳ ບໍ່ຂາວ', '55505727', 'Ban Phonxay, Unit 10', 'active', 'good@gmail.com', '2026-08-11 11:10:19', '2026-08-11 11:10:19'),
 (38, 'ທ້າວທອງດີ ບໍ່ຂາວ', '55505727', 'ສີສັງວວນ', 'active', 'go12345@gmail.com', '2026-08-11 11:12:34', '2026-08-11 11:12:34'),
 (39, 'ທ້າວທອງດີ ບໍ່ຂາວ', '55505727', 'ສີສັງວວນ', 'active', 'go12@gmail.com', '2026-08-11 11:16:49', '2026-08-11 11:16:49'),
-(40, 'ທ້າວຫຳ ບໍ່ຂາວ', '12345678', 'Ban Phonxay, Unit 10', 'active', 'lol@gmail.com', '2026-08-12 05:39:43', '2026-08-12 05:39:43'),
-(41, 'ທ້າວຄຳແສງ ແຈ້ງສະຫວ່າງ', '123456789000999999', 'Ban Phonxay, Unit 10', 'active', 'kham@gmail.com', '2026-08-13 04:28:18', '2026-08-13 04:28:18'),
-(42, 'ທສີ ສຸກ', '91723237', 'Ban Phonxay, Unit 10', 'active', 'se@gmail.com', '2026-08-13 07:26:04', '2026-08-13 07:26:04');
+(40, 'ທ້າວຫຳ ບໍ່ຂາວ', '12345678', 'Ban Phonxay, Unit 10', 'active', 'lol@gmail.com', '2026-08-12 05:39:43', '2026-08-12 05:39:43');
 
 -- --------------------------------------------------------
 
@@ -295,11 +319,7 @@ INSERT INTO `orders` (`order_id`, `pro_id`, `date`, `price`, `cus_id`, `payment_
 (42, 8, '2026-08-11', 150000, 11, 'rejected', 'cancelled', NULL, NULL, '2026-08-11 11:04:50', '2026-08-11 11:18:10', 'be5845bf-6d5d-4872-9f13-4cd2373d2b9b', 'bcel'),
 (43, 19, '2026-08-11', 150000, 11, 'verified', 'processing', NULL, NULL, '2026-08-11 11:54:17', '2026-08-11 11:54:46', '068eadac-1b89-4fbf-adac-104cd470ed81', 'bcel'),
 (44, 10, '2026-08-11', 2140000, 11, 'verified', 'processing', NULL, NULL, '2026-08-11 12:05:07', '2026-08-11 12:06:09', 'd147928a-f44d-4b40-b556-d79c220104ad', 'bcel'),
-(45, 10, '2026-08-12', 175000, 11, 'verified', 'processing', NULL, NULL, '2026-08-12 01:19:36', '2026-08-12 01:19:59', '510357ac-923f-4b88-ada0-eacf021b5f90', 'bcel'),
-(46, 8, '2026-08-13', 475000, 40, 'verified', 'processing', NULL, NULL, '2026-08-13 03:25:35', '2026-08-13 03:26:18', '204b47c2-276f-4788-aea2-d8f9bcdb8462', 'bcel'),
-(47, 8, '2026-08-13', 150000, 41, 'verified', 'processing', NULL, NULL, '2026-08-13 05:49:28', '2026-08-13 05:49:55', '2cdca1f4-aa8e-4709-8f12-90a2a572d0af', 'bcel'),
-(48, 9, '2026-08-13', 155000, 41, 'rejected', 'cancelled', NULL, NULL, '2026-08-13 05:52:12', '2026-08-13 05:53:45', 'cbd551be-32fe-4397-b18c-55025c9b9b95', 'bcel'),
-(49, 10, '2026-08-13', 330000, 41, 'verified', 'processing', NULL, NULL, '2026-08-13 07:16:32', '2026-08-13 07:16:54', 'a7fc7d3f-f213-4b52-8636-5aa58e5e1197', 'bcel');
+(45, 10, '2026-08-12', 175000, 11, 'verified', 'processing', NULL, NULL, '2026-08-12 01:19:36', '2026-08-12 01:19:59', '510357ac-923f-4b88-ada0-eacf021b5f90', 'bcel');
 
 -- --------------------------------------------------------
 
@@ -325,9 +345,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`pro_id`, `pro_name`, `pro_detail`, `pro_price`, `pro_image`, `pro_qty`, `cate_id`, `createdAt`, `updatedAt`, `brand_id`) VALUES
-(8, 'ໝາກບານ', '', 150000.00, 'images/products/product-1786189040794-623950295.jpg', 33, 3, '0000-00-00 00:00:00', '2026-08-13 05:49:28', 1),
-(9, 'ແມນຢູໄນເຕັດ', '', 155000.00, 'images/products/product-1786189051591-348968888.jpg', 23, 2, '0000-00-00 00:00:00', '2026-08-13 07:16:32', 1),
-(10, 'Manchester City', '', 175000.00, 'images/products/product-1786189065075-160432212.png', 47, 2, '0000-00-00 00:00:00', '2026-08-13 07:16:32', 3),
+(8, 'ໝາກບານ', '', 150000.00, 'images/products/product-1786189040794-623950295.jpg', 35, 3, '0000-00-00 00:00:00', '2026-08-11 15:32:18', 1),
+(9, 'ແມນຢູໄນເຕັດ', '', 155000.00, 'images/products/product-1786189051591-348968888.jpg', 25, 2, '0000-00-00 00:00:00', '2026-08-11 15:32:02', 1),
+(10, 'Manchester City', '', 175000.00, 'images/products/product-1786189065075-160432212.png', 49, 2, '0000-00-00 00:00:00', '2026-08-12 01:19:36', 3),
 (11, 'ໄມ້ກັອບ', '', 1000000.00, 'images/products/product-1786189078224-4852109.jfif', 16, 3, '0000-00-00 00:00:00', '2026-08-11 15:31:57', 1),
 (12, 'ລູກບານບ້ວງ', '', 130000.00, 'images/products/product-1786189091243-620324816.jfif', 12, 3, '0000-00-00 00:00:00', '2026-08-08 11:38:11', 1),
 (13, 'ໄມ້ເທັນນິດ', '', 200000.00, 'images/products/product-1786189101437-537162672.jfif', 13, 3, '0000-00-00 00:00:00', '2026-08-08 11:38:21', 3),
@@ -335,7 +355,7 @@ INSERT INTO `product` (`pro_id`, `pro_name`, `pro_detail`, `pro_price`, `pro_ima
 (15, 'ເກີບເຕະບານ', '', 700000.00, 'images/products/product-1786189128085-862353724.jfif', 16, 1, '0000-00-00 00:00:00', '2026-08-08 11:38:48', 1),
 (16, 'Liverpool FC ', NULL, 150000.00, 'images/products/product-1786410577313-835404281.webp', 20, 2, '2026-08-11 01:09:37', '2026-08-11 01:09:37', 4),
 (17, 'ບານຕົບ', NULL, 130000.00, 'images/products/product-1786411421533-565442516.jfif', 20, 3, '2026-08-11 01:23:41', '2026-08-11 01:23:41', 4),
-(18, 'FC Barcelona', NULL, 150000.00, 'images/products/product-1786411510489-145021728.jfif', 19, 2, '2026-08-11 01:25:10', '2026-08-13 03:25:35', 1),
+(18, 'FC Barcelona', NULL, 150000.00, 'images/products/product-1786411510489-145021728.jfif', 20, 2, '2026-08-11 01:25:10', '2026-08-11 01:25:10', 1),
 (19, 'FC Bayern München', NULL, 150000.00, 'images/products/product-1786411563980-262022253.jpg', 19, 2, '2026-08-11 01:26:03', '2026-08-11 11:54:17', 4);
 
 -- --------------------------------------------------------
@@ -419,7 +439,6 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`User_id`, `Full_Name`, `Date_of_birth`, `Email`, `password`, `status`, `tel`, `image`, `role`, `createdAt`, `updatedAt`) VALUES
 ('ADMIN00001', 'Admin User', NULL, 'admin@example.com', '$2b$10$Uzyt6YT6Ql8xaZfJBjxFCezJDoc7/cv78YgYynNdmsUI3Sxpa0G6m', 'active', NULL, NULL, 'admin', '2026-04-22 12:31:50', '2026-04-22 12:31:50'),
-('ADMIN00002', 'meck', NULL, 'admin12@gmail.com', '$2b$10$y.7TKKGhN4vvj2AbPuNc8eMmKyLzbtFaUkEOhLXluARrQ4ZKCVboa', 'active', '23163344', NULL, 'admin', '2026-08-13 06:54:59', '2026-08-13 06:54:59'),
 ('CUS00003', 'John Doe', '2000-01-01', 'john@example.com', '$2b$10$r0XOIvzaCQjguEJlSY/4m.Nz9QxIrCko9ieAgiqWHKaHGWmBFjreK', 'active', '02012345678', NULL, 'customer', '2026-04-22 13:08:05', '2026-04-22 13:08:05'),
 ('CUS00004', 'John Doe', '2000-01-01', 'mek@example.com', '$2b$10$uL31da.roNJR4e1/ykV3Mu9BAxba.0IK6Pmb4hvwwcWrXHCWIWQPm', 'active', '02012345678', NULL, 'customer', '2026-04-25 05:17:37', '2026-04-25 05:17:37'),
 ('CUS00005', 'meck Doe', '2000-01-01', 'mek@gmali.com', '$2b$10$ja1Tzkkf3AQ9.gwteGkLOOEZfKUO3AtntE0P3/Qcf4KFj.VVEmJHe', 'active', '02023163344', NULL, 'customer', '2026-04-25 05:37:59', '2026-04-25 05:37:59'),
@@ -454,8 +473,6 @@ INSERT INTO `user` (`User_id`, `Full_Name`, `Date_of_birth`, `Email`, `password`
 ('CUS00038', 'ທ້າວທອງດີ ບໍ່ຂາວ', '2026-06-09', 'go12345@gmail.com', '$2b$10$diao2gSsrTNHJtm1CrHm9uGS29h9U.jtnLvSyRzHwJkCs/0bDmEMK', 'active', '55505727', NULL, 'customer', '2026-08-11 11:12:34', '2026-08-11 11:12:34'),
 ('CUS00039', 'ທ້າວທອງດີ ບໍ່ຂາວ', '2026-06-09', 'go12@gmail.com', '$2b$10$JDCJMt5mqcjaB2JG2NolquZzJtbxuswvJs3ZgCxLzUvL0AQDZWO6W', 'active', '55505727', NULL, 'customer', '2026-08-11 11:16:49', '2026-08-11 11:16:49'),
 ('CUS00040', 'ທ້າວຫຳ ບໍ່ຂາວ', '2026-08-06', 'lol@gmail.com', '$2b$10$neZigzPE2m9sDR0Ane8b1.dQh7dA2FldbMFQdBUG6/OfJ69VzF9Fy', 'active', '12345678', NULL, 'customer', '2026-08-12 05:39:43', '2026-08-12 05:39:43'),
-('CUS00041', 'ທ້າວຄຳແສງ ແຈ້ງສະຫວ່າງ', '2026-08-04', 'kham@gmail.com', '$2b$10$dAJofGewrzXLhH617MYAaOnWv3.DSWzKZ3fn43kXyhGR9zwTIz8xC', 'active', '123456789000999999', NULL, 'customer', '2026-08-13 04:28:18', '2026-08-13 05:51:31'),
-('CUS00042', 'ທສີ ສຸກ', '2026-08-03', 'se@gmail.com', '$2b$10$V9LpPTgEn6cw9uPNl42w7uUwB6kXEpzVTCGroqDR8QDJEnrBdzI7i', 'active', '91723237', NULL, 'customer', '2026-08-13 07:26:04', '2026-08-13 07:26:04'),
 ('STAFF00001', 'ທ.ຄໍາແສງ', NULL, 'kyj123@gmail.com', '$2b$10$I5VOrEedqN2CyV1mai9DkeSvx4TAc4f4m/kPKSDhNK0iLoBVIRvUS', 'active', '0201234567', NULL, 'staff', '2026-06-16 12:35:19', '2026-06-16 12:35:19');
 
 --
@@ -477,10 +494,24 @@ ALTER TABLE `brand`
   ADD PRIMARY KEY (`brand_id`);
 
 --
+-- Indexes for table `brand_category`
+--
+ALTER TABLE `brand_category`
+  ADD PRIMARY KEY (`brand_id`,`cate_id`),
+  ADD UNIQUE KEY `brand_category_cate_id_brand_id_unique` (`brand_id`,`cate_id`),
+  ADD KEY `cate_id` (`cate_id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`cate_id`);
+
+--
+-- Indexes for table `contact_messages`
+--
+ALTER TABLE `contact_messages`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `customer`
@@ -544,7 +575,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bill_sell_detail`
 --
 ALTER TABLE `bill_sell_detail`
-  MODIFY `detail_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `detail_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `brand`
@@ -559,10 +590,16 @@ ALTER TABLE `category`
   MODIFY `cate_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `contact_messages`
+--
+ALTER TABLE `contact_messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cus_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `cus_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `delivery`
@@ -574,7 +611,7 @@ ALTER TABLE `delivery`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ລະຫັດການສັ່ງຊື້', AUTO_INCREMENT=50;
+  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ລະຫັດການສັ່ງຊື້', AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -604,6 +641,13 @@ ALTER TABLE `supplier`
 ALTER TABLE `bill_sell_detail`
   ADD CONSTRAINT `bill_sell_detail_ibfk_5` FOREIGN KEY (`Order_id`) REFERENCES `orders` (`order_id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `bill_sell_detail_ibfk_6` FOREIGN KEY (`Pro_id`) REFERENCES `product` (`pro_id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `brand_category`
+--
+ALTER TABLE `brand_category`
+  ADD CONSTRAINT `brand_category_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`brand_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `brand_category_ibfk_2` FOREIGN KEY (`cate_id`) REFERENCES `category` (`cate_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `delivery`
